@@ -1,0 +1,19 @@
+<%- include("../partials/header") %>
+<section id="board-new">
+    <div class="new-wrapper">
+        <h2>Create a New board</h2>
+        <form action="/boards" method="post">
+            <div class="new-title">
+                <h5>Title</h5>
+                <textarea class="title" name="writing" cols="85" rows="2"></textarea>
+            </div>
+            <div class="new-writing">
+                <h5>Content</h5>
+                <textarea class="writing" name="writing" cols="85" rows="20"></textarea>
+            </div>
+            <button id="bconfirm" onclick="return confirm('Are you sure you want to edit this board?')">Create</button>
+        </form>
+        <button id="bcancel" onclick="location.href='/boards'">Cancel</button>
+    </div>
+</section>
+<%- include("../partials/footer") %>

@@ -1,0 +1,19 @@
+<%- include("../partials/header") %>
+<section id="board-edit">
+    <div class="edit-wrapper">
+        <h2>Edit <span><%= board.author.username %></span>'s board</h2>
+        <form action="/boards/<%= board._id %>?_method=put" method="post">
+            <div class="edit-title">
+                <h5>Title</h5>
+                <textarea class="title" name="title" cols="85" rows="2"><%= board.title %></textarea>
+            </div>
+            <div class="edit-writing">
+                <h5>Content</h5>
+                <textarea class="writing" name="writing" cols="85" rows="20"><%= board.writing %></textarea>
+            </div>
+            <button id="bconfirm" onclick="return confirm('Are you sure you want to edit this board?')">Confirm</button>
+        </form>
+        <button id="bcancel" onclick="location.href='/boards/<%= board._id %>'">Cancel</button>
+    </div>
+</section>
+<%- include("../partials/footer") %>

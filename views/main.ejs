@@ -1,0 +1,17 @@
+<%- include("./partials/header") %>
+
+<section id="main">
+  <div class="main-wrapper">
+    <h2>Welcome To BroadBoard</h2>
+    <% if (user && user._id) { %>
+    <h2 id="nickname"><%= user.nickname %> !</h2>
+    <% } %>
+    <h1>Meet interesting thoughts and knowledge <br>
+      On news, sports, games, generals...etc! <br>
+      Also please share yours!<br>
+    </h1>
+  </div>
+</section>
+
+
+<%- include("./partials/footer") %>

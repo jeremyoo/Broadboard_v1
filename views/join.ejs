@@ -1,0 +1,26 @@
+<%- include("./partials/header") %>
+<section id="join">
+  <form class="join-wrapper" action="/auth/join" method="post">
+    <h1>Sign Up</h1>
+    <div class="form-group">
+      <label for="user">
+        <h5>Username</h5>
+      </label>
+      <input type="email" for="user" name="username" autocomplete="off" />
+    </div>
+    <div class="form-group">
+      <label for="nick">
+        <h5>Nickname</h5>
+      </label>
+      <input type="text" for="nick" name="nickname" autocomplete="off" />
+    </div>
+    <div class="form-group">
+      <label for="password">
+        <h5>Password</h5>
+      </label>
+      <input type="password" id="password" name="password" autocomplete="off" />
+    </div>
+    <button>Submit</button>
+  </form>
+</section>
+<%- include("./partials/footer") %>

@@ -1,0 +1,81 @@
+<%- include("../partials/header") %>
+<div class="board-background">
+    <section id="board">
+        <div class="board-new">
+            <% if (user && user.id) { %>
+            <a href="/boards/new">New Board</a>
+            <% } else { %>
+            <h4>You need to be logged in to write a board.</h4>
+            <% } %>
+        </div>
+
+        <% boards.forEach((post) => { %>
+        <div class="board-wrapper">
+            <h4><%= post.author.username %></h4>
+            <ul class="numtitle">
+                <li>ICON. </li>
+                <h5><a href="/boards/<%= post._id %>"><%= post.title %></a></h5>
+            </ul>
+            <ul class="dateview">
+                <% if (post.updatedAt) { %>
+                <li>
+                    <h7>Updated: <%= moment(post.updatedAt).format('YYYY-MM-DD hh:mm') %></h7>
+                </li>
+                <% } %>
+                <li>
+                    <h7>Created: <%= moment(post.createdAt).format('YYYY-MM-DD hh:mm') %></h7>
+                </li>
+                <li>
+                    <h7>Views: <%= post.views %></h7>
+                </li>
+            </ul>
+        </div>
+        <% }); %>
+
+        <div class="board-page">
+            <ul id="page">
+                <% 
+                    let offset = 2; 
+                    let previousBtnEnabled = currentPage > 1;
+                    let nextBtnEnabled = currentPage < maxPage;
+                %>
+
+                <!-- Creating Page Arrow << Btn -->
+                <div class="previousBtn">
+                    <% if (previousBtnEnabled) { %>
+                    <li class="page-item"><a href="/boards?page=<%= currentPage-1 %>&limit=<%= limit %>">
+                            << </a>
+                    </li>
+                    <% } %>
+                </div>
+
+                <!-- Creating Page Numbers -->
+                <div class="page-num">
+                    <% for(let i=1; i<=maxPage; i++){ %>
+                    <% if( (i>=currentPage-offset && i<=currentPage+offset)){ %>
+                    <li class="<%= currentPage==i?'active':'' %>"><a class="page-link"
+                            href="/boards?page=<%= i %>&limit=<%= limit %>"><%=i%></a></li>
+                    <% } else if (i==2 || i==maxpage-1) { %>
+                    <li><a>...</a></li>
+                    <% } %>
+                    <% } %>
+                </div>
+
+                <!-- Creating Page Arrow >> Btn -->
+                <div class="nextBtn">
+                    <% if (nextBtnEnabled) { %>
+                    <li class="page-item"><a href="/boards?page=<%= currentPage+1 %>&limit=<%= limit %>">>></a></li>
+                    <% } %>
+                </div>
+            </ul>
+        </div>
+    </section>
+</div>
+
+
+
+
+
+
+
+<%- include("../partials/footer") %>
