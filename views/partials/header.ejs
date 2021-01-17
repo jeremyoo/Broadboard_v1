@@ -19,23 +19,17 @@
         <nav>
             <h2 id="logo"><a href="/">BroadBoard</a></h2>
             <ul>
-                <% if (user && user._id) { %>
                 <li>
-                    <a href="#">About</a>
+                    <a href="/about">About</a>
                 </li>
                 <li>
                     <a href="/boards">Board</a>
                 </li>
+                <% if (user && user._id) { %>
                 <li>
                     <a href="/auth/logout">Logout</a>
                 </li>
                 <% } else { %>
-                <li>
-                    <a href="#">About</a>
-                </li>
-                <li>
-                    <a href="/boards">Board</a>
-                </li>
                 <li>
                     <a href="/login">Login</a>
                 </li>

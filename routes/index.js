@@ -14,13 +14,6 @@ router.get('/', (req, res, next) => {
     });
 });
 
-// show profile page
-router.get('/profile', isLoggedIn, (req, res, next) => {
-    res.render('profile', {
-        user: req.user,
-    });
-});
-
 // show sing up page
 router.get('/join', isNotLoggedIn, (req, res, next) => {
     res.render('join', {
@@ -28,12 +21,18 @@ router.get('/join', isNotLoggedIn, (req, res, next) => {
     });
 });
 
-// show log in lage
+// show log in page
 router.get('/login', isNotLoggedIn, (req, res, next) => {
     res.render('login', {
         user: req.user,
     });
 });
 
+// show about page
+router.get('/about', (req, res, next) => {
+    res.render('about', {
+        user: req.user,
+    });
+});
 
 module.exports = router;

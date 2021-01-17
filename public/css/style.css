@@ -98,10 +98,10 @@ nav ul a {
     top: 10%;
     z-index: 2;
     overflow: hidden;
-    animation: fadeOut 2s forwards 2s;
-    -moz-animation: fadeOut 2s forwards 1s;
-    -webkit-animation: fadeOut 2s forwards 1s;
-    -o-animation: fadeOut 2s forwards 1s;
+    animation: fadeOut 2.0s forwards 2.0s;
+    -moz-animation: fadeOut 2.0s forwards 2.0s;
+    -webkit-animation: fadeOut 2.0s forwards 2.0s;
+    -o-animation: fadeOut 2.0s forwards 2.0s;
 }
 .flash-success {
     background: #0e3a63;
@@ -194,7 +194,9 @@ footer h3 {
     align-items: center;
     flex-direction: column;
     justify-content: center;
-    text-align: center;
+}
+.main-wrapper h2 {
+    font-weight: normal;
 }
 .main-wrapper h1 {
     margin: 2rem 0;
@@ -207,6 +209,43 @@ footer h3 {
     font-weight: lighter;
 }
 
+
+/* About Section */
+#about {
+    background: linear-gradient(0deg, rgba(0, 255, 255, 0.5), transparent), url(/img/person-on-a-bridge-near-a-lake-747964.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    min-height: 82.5vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+.about-wrapper {
+    width: 60%;
+    margin: auto;
+    background: rgba(0, 0, 0, 0.8);
+    border-bottom-right-radius: 40px;
+    color: whitesmoke;
+    padding: 4rem;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+}
+.about-wrapper h2 {
+    font-weight: normal;
+}
+.about-wrapper h1 {
+    margin: 1rem 0;
+    font-weight: normal;
+    font-size: 2rem;
+}
+.quotes h1{
+    text-align: center;
+    font-weight: lighter;
+    font-size: 1.5rem;
+}
 
 /* Board Section */
 .board-background {
@@ -610,6 +649,7 @@ footer h3 {
 }
 .login-wrapper h1,.join-wrapper h1 {
     font-size: 4.0rem;
+    font-weight: normal;
     margin: 2rem;
 }
 .login-wrapper .form-group,.join-wrapper .form-group {
@@ -668,6 +708,10 @@ footer h3 {
         width: 80%;
         margin: auto;
     }
+    .about-wrapper {
+        width: 70%;
+        padding: 3rem;
+    }
     .board-wrapper th:nth-of-type(3) {
         min-width: 65%;
     }
@@ -699,6 +743,10 @@ footer h3 {
     .main-wrapper {
         width: 95%;
         margin: auto;
+    }
+    .about-wrapper {
+        width: 80%;
+        padding: 2rem;
     }
     .board-wrapper th:nth-of-type(3) {
         min-width: 85%;

@@ -11,27 +11,47 @@ router.post('/join', isNotLoggedIn, async (req, res, next) => {
         username: username,
         nickname: nickname,
     });
-    try {
-        await User.register(user, password);
-        await passport.authenticate('local', {
-            successRedirect: '/',
-            failureRedirect: '/login',
-            failureFlash: 'failed to login',
-        })(req, res, next);
-        req.flash('success', 'Your account has successfully created')
-    } catch (error) {
-        req.flash('error', 'Unexpected error has occured with service')
-        console.error(error);
-        next(error);
-    }
+        if (!username) {
+            req.flash('error', 'You need to insert username');
+            return res.redirect('/join');
+        }
+        else if (!nickname) {
+            req.flash('error', 'You need to insert nickname');
+            return res.redirect('/join');
+        }
+        else if (!password) {
+            req.flash('error', 'You need to insert password');
+            return res.redirect('/join');
+        }
+        await User.register(user, password, (err, users) => {
+            if (err) {
+                req.flash('error', err.message);
+                return res.redirect('/join');    
+            }
+            passport.authenticate('local', {
+                successRedirect: '/',
+                successFlash: 'You account has been successfully created',
+                failureRedirect: '/join',
+            })(req, res, next);
+        });
 });
 
-router.post('/login', isNotLoggedIn, (req, res, next) => {
-    passport.authenticate('local', {
+router.post('/login', isNotLoggedIn, async (req, res, next) => {
+    const { username, password } = req.body;
+    if (!username) {
+        req.flash('error', 'You need to insert username');
+        return res.redirect('/login');
+    }
+    else if (!password) {
+        req.flash('error', 'You need to insert password');
+        return res.redirect('/login');
+    }
+    await passport.authenticate('local', {
         successReturnToOrRedirect: '/',
+        successFlash: 'You have successfully logged in',
         failureRedirect: '/login',
+        failureFlash: 'Please check your username and password',
     })(req, res, next);
-    req.flash('success', 'Your have successfully logged in')
 });
 
 router.get('/logout', isLoggedIn, (req, res, next) => {
