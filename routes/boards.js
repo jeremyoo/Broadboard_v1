@@ -1,9 +1,8 @@
 const express = require('express');
 const Board = require('../models/board');
-const Comment = require('../models/comment');
 const moment = require('moment');
 
-const { isLoggedIn, isNotLoggedIn, boardOwnership } = require('../middleware');
+const { isLoggedIn, boardOwnership } = require('../middleware');
 
 const router = express.Router();
 
@@ -27,7 +26,7 @@ router.post('/', isLoggedIn, async (req, res, next) => {
             writing: writing,
             author: author,
         });
-        console.log(newBoard);
+        await newBoard.save();
         req.flash('success', 'Your board has successfully created')
         return res.redirect('/boards');
     } catch (error) {
