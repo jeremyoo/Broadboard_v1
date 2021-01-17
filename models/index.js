@@ -1,9 +1,6 @@
 const mongoose = require('mongoose');
 // environment variables
-const { MONGO_ID, MONGO_PASSWORD, NODE_ENV } = process.env;
-
-// MongoDB URL
-const MONGO_URL = `mongodb://${MONGO_ID}:${MONGO_PASSWORD}@localhost:27017/admin`;
+const { MONGO_URL, NODE_ENV } = process.env;
 
 module.exports = () => {
     const connect = () => {
