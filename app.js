@@ -29,7 +29,7 @@ connect();
 
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
-app.set('port', process.env.PORT || 8001)
+app.set('port', process.env.PORT || 8080)
 
 if (process.env.NODE_ENV === 'production') {
     app.use(morgan('combined'));
