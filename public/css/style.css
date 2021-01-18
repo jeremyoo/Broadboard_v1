@@ -275,6 +275,9 @@ footer h3 {
     align-items: center;
     margin: 0.5rem 0;
 }
+.number {
+    color: rgb(98, 97, 148);
+}
 .numtitle h5 {
     font-weight: lighter;
 }
@@ -285,7 +288,7 @@ footer h3 {
     display: flex;
 }
 
-.board-wrapper ul h5,li:nth-of-type(2) {
+.board-wrapper ul h5,.views {
     margin: 0 2rem;
 }
 .board-wrapper h4 {
@@ -327,22 +330,20 @@ footer h3 {
     text-align: center;
 }
 .page-num {
+    width: 15rem;
     display: flex;
-    justify-content: center;
+    justify-content: space-between;
     align-items: center;
-    margin: 0 4rem;
+    margin: 0 3rem;
 }
 .page-item a:hover {
     color: lightcoral;
-    font-weight: bold;
 }
 .page-link:hover {
     color: lightcoral;
-    font-weight: bold;
 }
 .active .page-link {
     color: lightcoral;
-    font-weight: bold;
 }
 
 /* Show single Board */
