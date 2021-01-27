@@ -18,8 +18,8 @@ It is ongoing project, therefore expect more for the future!
 ## Features
 - Provide basic sign-up & sign-in authentication through passport
 - Provide CRUD (create, read, update, delete) on post and comment:
-    - Only successfully authenticated users are allowed to create, update and delete their posts
-    - Everyone can still read the posts without authentication 
+    - Only successfully authenticated users are allowed to create, update and delete their posts or comments
+    - Everyone can still read the posts or comments without authentication 
   
     
 ## Issue
