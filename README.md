@@ -3,7 +3,7 @@
         <h1>BroadBoard</h1>
     </a>
 
-BroadBoard is a RESTful community board.<br>
+BroadBoard is a community board.<br>
 It is ongoing project, therefore expect more for the future!
 
 
